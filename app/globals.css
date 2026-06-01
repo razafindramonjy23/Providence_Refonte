@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --navy: 10 55% 25%;
+  --red: 0 72% 45%;
+  --cream: 40 50% 96%;
+  --cream-dark: 40 30% 90%;
+  --charcoal: 210 10% 18%;
+  --charcoal-light: 210 8% 35%;
+  --success: 142 60% 40%;
+  --warning: 35 92% 50%;
+  --error: 0 80% 50%;
+}
+
+@layer base {
+  :root {
+    --background: 40 50% 98%;
+    --foreground: 210 10% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 10% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 10% 18%;
+    --primary: 10 55% 25%;
+    --primary-foreground: 40 50% 96%;
+    --secondary: 40 50% 94%;
+    --secondary-foreground: 10 55% 25%;
+    --muted: 40 30% 94%;
+    --muted-foreground: 210 8% 50%;
+    --accent: 0 72% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 20% 88%;
+    --input: 40 20% 88%;
+    --ring: 10 55% 25%;
+    --radius: 0.375rem;
+  }
+
+  .dark {
+    --background: 10 20% 12%;
+    --foreground: 40 50% 96%;
+    --card: 10 20% 16%;
+    --card-foreground: 40 50% 96%;
+    --popover: 10 20% 16%;
+    --popover-foreground: 40 50% 96%;
+    --primary: 0 72% 55%;
+    --primary-foreground: 10 20% 12%;
+    --secondary: 10 20% 20%;
+    --secondary-foreground: 40 50% 96%;
+    --muted: 10 20% 25%;
+    --muted-foreground: 40 40% 70%;
+    --accent: 0 72% 55%;
+    --accent-foreground: 10 20% 12%;
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 10 20% 22%;
+    --input: 10 20% 22%;
+    --ring: 0 72% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+  }
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
