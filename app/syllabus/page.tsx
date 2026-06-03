@@ -7,6 +7,7 @@ import { BookOpen, ChevronRight, GraduationCap, Globe, FlaskConical, Palette, Du
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/contexts';
 import { translations } from '@/lib/translations';
+import { easeOut } from '@/lib/motion';
 
 const subjectIcons: Record<string, React.ReactNode> = {
   'Foundations of Literacy': <BookOpen size={15} />,
@@ -60,7 +61,7 @@ const stages = [
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
 };
 
 const stagger = {

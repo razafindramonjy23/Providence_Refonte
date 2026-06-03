@@ -7,10 +7,12 @@ import { ArrowRight, Award, BookOpen, Globe, Star, ChevronRight, Play } from 'lu
 import { motion } from 'framer-motion';
 import { translations } from '@/lib/translations';
 import { useLanguage } from '@/lib/contexts';
+import HomeImage from '@/assets/Images/Home.jpeg';
+import { easeOut } from '@/lib/motion';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: easeOut } },
 };
 
 const stagger = {
@@ -212,7 +214,7 @@ export default function Home() {
           >
             <div className="relative overflow-hidden rounded-xl">
               <img
-                src="https://images.pexels.com/photos/5905700/pexels-photo-5905700.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src={HomeImage.src}
                 alt="Students learning"
                 className="w-full h-[500px] object-cover"
               />
