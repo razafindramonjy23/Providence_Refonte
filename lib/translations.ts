@@ -143,7 +143,7 @@ export const translations = {
     nav: {
       primary: 'Accueil',
       secondary: 'Secondaire',
-      syllabus: 'Cursus',
+      syllabus: 'Syllabus',
       ourMethod: 'Notre Méthode',
       aboutUs: 'À Propos',
       enquire: 'Nous Contacter',

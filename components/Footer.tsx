@@ -139,15 +139,18 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs text-white/45">
               <li className="flex items-start gap-2">
                 <MapPin size={12} className="mt-0.5 shrink-0 text-[#c49a3c]" />
-                <span>Alarobia</span>
+                <span>Alarobia Amboniloha, Antananarivo</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={12} className="shrink-0 text-[#c49a3c]" />
-                <a href="mailto:contact@providence.ac" className="hover:text-white transition-colors">contact@providence.ac</a>
+                <a href="mailto:providence_academy@yahoo.com" className="hover:text-white transition-colors">providence_academy@yahoo.com</a>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone size={12} className="shrink-0 text-[#c49a3c]" />
-                <a href="tel:+1234567890" className="hover:text-white transition-colors">+261000000000</a>
+              <li className="flex items-start gap-2">
+                <Phone size={12} className="mt-0.5 shrink-0 text-[#c49a3c]" />
+                <div className="flex flex-col gap-0.5">
+                  <a href="tel:+261330740461" className="hover:text-white transition-colors">+261 33 07 404 61</a>
+                  <a href="tel:+261340504461" className="hover:text-white transition-colors">+261 34 50 404 61</a>
+                </div>
               </li>
             </ul>
 

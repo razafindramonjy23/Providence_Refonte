@@ -112,7 +112,7 @@ export default function EnquirePage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1800')`,
+            backgroundImage: `url('/images/graduation.jpg')`,
           }}
         />
         <div
@@ -177,7 +177,7 @@ export default function EnquirePage() {
               {[
                 { label: lang === 'fr' ? 'Réponse rapide' : 'Fast response',      sub: lang === 'fr' ? 'Sous 24h'  : 'Within 24h' },
                 { label: lang === 'fr' ? 'Sans engagement' : 'No commitment',     sub: lang === 'fr' ? 'Consultation gratuite' : 'Free consultation' },
-                { label: lang === 'fr' ? '2 campus' : '2 campuses',               sub: lang === 'fr' ? 'Édimbourg · Rome' : 'Edinburgh · Rome' },
+                { label: lang === 'fr' ? 'Alarobia' : 'Alarobia',                 sub: 'Antananarivo' },
               ].map((pill) => (
                 <div
                   key={pill.label}

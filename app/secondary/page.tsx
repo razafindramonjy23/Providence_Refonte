@@ -221,7 +221,7 @@ export default function SecondaryPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=80')`,
+            backgroundImage: `url('/images/coverImage.jpeg')`,
           }}
         />
         <div
@@ -490,6 +490,128 @@ export default function SecondaryPage() {
         </div>
       </section>
 
+      {/* ── TARIFS / PRICING ── */}
+      <section className="py-24 bg-gray-50 dark:bg-slate-900">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="mb-14"
+          >
+            <div className="inline-flex items-center gap-2 mb-3 pl-3 border-l-2" style={{ borderColor: '#c41e3a' }}>
+              <p className="text-xs tracking-[0.35em] uppercase font-semibold" style={{ color: '#c41e3a' }}>
+                {lang === 'fr' ? 'Cours du samedi' : 'Saturday classes'}
+              </p>
+            </div>
+            <h2 className="font-display text-4xl font-600 text-[#2a1e10] dark:text-white mb-2">
+              {lang === 'fr' ? 'Nos tarifs' : 'Pricing'}
+            </h2>
+            <p className="text-[#5a5040] dark:text-gray-400 max-w-lg">
+              {lang === 'fr'
+                ? 'Des cours du samedi accessibles, en petits groupes, pour enfants et adolescents.'
+                : 'Affordable Saturday sessions in small groups, for kids and teens.'}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                img: '/images/students-kids.jpeg',
+                badge: lang === 'fr' ? 'Enfants · 6–12 ans' : 'Kids · 6–12 yrs',
+                badgeColor: '#1a3a52',
+                title: lang === 'fr' ? 'Anglais pour Enfants' : 'English for Kids',
+                slots: ['8h00 – 10h00', '10h00 – 12h00', '13h00 – 15h00', '15h00 – 17h00'],
+              },
+              {
+                img: '/images/students-field-trip.jpeg',
+                badge: lang === 'fr' ? 'Adolescents · 12–17 ans' : 'Teens · 12–17 yrs',
+                badgeColor: '#c41e3a',
+                title: lang === 'fr' ? 'Anglais pour Ados' : 'English for Teens',
+                slots: ['8h00 – 10h00', '10h00 – 12h00', '13h00 – 15h00', '15h00 – 17h00'],
+              },
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow"
+              >
+                {/* Image avec badge prix */}
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+
+                  {/* Badge catégorie */}
+                  <div
+                    className="absolute top-4 left-4 px-3 py-1 rounded-full text-white text-xs font-semibold"
+                    style={{ backgroundColor: card.badgeColor }}
+                  >
+                    {card.badge}
+                  </div>
+
+                  {/* Badge prix */}
+                  <div className="absolute bottom-4 right-4 bg-white dark:bg-slate-900 rounded-xl px-4 py-2 text-right shadow-lg">
+                    <p className="font-display text-2xl font-700 leading-none" style={{ color: card.badgeColor }}>
+                      15 000 <span className="text-sm font-normal text-gray-500">Ar</span>
+                    </p>
+                    <p className="text-[10px] text-gray-400 mt-0.5">/ {lang === 'fr' ? 'séance (2h)' : 'session (2h)'}</p>
+                  </div>
+                </div>
+
+                {/* Contenu */}
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-600 text-[#2a1e10] dark:text-white mb-4">
+                    {card.title}
+                  </h3>
+
+                  {/* Créneaux */}
+                  <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-gray-400 mb-3">
+                    {lang === 'fr' ? 'Créneaux disponibles · Samedi' : 'Available slots · Saturday'}
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 mb-6">
+                    {card.slots.map((slot) => (
+                      <div
+                        key={slot}
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-[#1a3a52] dark:text-white"
+                        style={{ backgroundColor: 'rgba(26,58,82,0.06)' }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: card.badgeColor }} />
+                        {slot}
+                      </div>
+                    ))}
+                  </div>
+
+                  <Link
+                    href="/enquire"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 group"
+                    style={{ backgroundColor: card.badgeColor }}
+                  >
+                    {lang === 'fr' ? 'Réserver une place' : 'Reserve a spot'}
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <p className="text-center text-xs text-[#9a8a75] dark:text-gray-500 mt-8">
+            {lang === 'fr'
+              ? '* Places limitées — contactez-nous pour choisir votre créneau.'
+              : '* Limited seats — contact us to choose your time slot.'}
+          </p>
+        </div>
+      </section>
+
       {/* ── CTA FINAL ── */}
       <section className="py-24 bg-[#f8f2ec] dark:bg-slate-950">
         <div className="max-w-3xl mx-auto px-6 text-center">
@@ -521,7 +643,7 @@ export default function SecondaryPage() {
               </motion.div>
               <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
                 <a
-                  href="https://wa.me/"
+                  href="https://wa.me/261330740461"
                   className="inline-flex items-center gap-2 px-8 py-4 text-sm font-medium rounded-sm transition-colors"
                   style={{
                     border: '1px solid #4a3220',

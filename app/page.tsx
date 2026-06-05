@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Award, BookOpen, Globe, Star, ChevronRight, Play } from 'lucide-react';
+import { ArrowRight, ChevronRight, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { translations } from '@/lib/translations';
 import { useLanguage } from '@/lib/contexts';
@@ -31,7 +31,7 @@ export default function Home() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1800')`,
+            backgroundImage: `url('/images/coverImage.jpeg')`,
           }}
         />
         {/* Dégradé latéral : texte lisible à gauche, image visible à droite */}
@@ -200,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* ── ABOUT ── */}
-      <section className="py-24">
+      <section className="py-24 bg-[#faf8f5] dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             variants={fadeUp}
@@ -264,7 +264,7 @@ export default function Home() {
                 <ArrowRight size={14} />
               </Link>
               <a
-                href="https://wa.me/"
+                href="https://wa.me/261330740461"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-gray-600 text-foreground dark:text-white text-sm font-medium rounded-sm hover:bg-gray-50 dark:hover:bg-slate-800 transition-colors"
               >
                 WhatsApp
@@ -274,91 +274,121 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FEATURES "Pourquoi nous choisir" ── */}
-      <section className="py-20 bg-gray-50 dark:bg-slate-800">
-        <div className="max-w-7xl mx-auto px-6">
+      {/* ── TARIFS / PRICING ── */}
+      <section className="py-24 bg-gray-50 dark:bg-slate-900">
+        <div className="max-w-6xl mx-auto px-6">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            className="mb-12"
+            className="mb-14"
           >
             <div className="inline-flex items-center gap-2 mb-3 pl-3 border-l-2" style={{ borderColor: '#c41e3a' }}>
               <p className="text-xs tracking-[0.35em] uppercase font-semibold" style={{ color: '#c41e3a' }}>
-                {language === 'fr' ? 'Notre différence' : 'Our difference'}
+                {language === 'fr' ? 'Cours du samedi' : 'Saturday classes'}
               </p>
             </div>
-            <h2 className="font-display text-3xl md:text-4xl font-600 text-foreground dark:text-white">
-              {language === 'fr' ? 'Pourquoi les familles nous font confiance' : 'Why families trust us'}
+            <h2 className="font-display text-3xl md:text-4xl font-600 text-foreground dark:text-white mb-2">
+              {language === 'fr' ? 'Nos tarifs' : 'Pricing'}
             </h2>
+            <p className="text-gray-500 dark:text-gray-400 max-w-lg">
+              {language === 'fr'
+                ? 'Des cours du samedi accessibles, en petits groupes, pour enfants et adolescents.'
+                : 'Affordable Saturday sessions in small groups, for kids and teens.'}
+            </p>
           </motion.div>
 
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-5"
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-          >
+          <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                icon: <BookOpen size={22} />,
-                title: language === 'fr' ? 'Par le jeu & les histoires' : 'Through play & stories',
-                desc: language === 'fr'
-                  ? "Chansons, jeux sensoriels et routines : l'anglais devient naturel."
-                  : 'Songs, sensory play and routines — English begins to feel natural.',
+                img: '/images/students-kids.jpeg',
+                badge: language === 'fr' ? 'Enfants · 6–12 ans' : 'Kids · 6–12 yrs',
+                badgeColor: '#1a3a52',
+                title: language === 'fr' ? 'Anglais pour Enfants' : 'English for Kids',
+                slots: ['8h00 – 10h00', '10h00 – 12h00', '13h00 – 15h00', '15h00 – 17h00'],
               },
               {
-                icon: <Globe size={22} />,
-                title: language === 'fr' ? 'Horaires famille' : 'Family-friendly hours',
-                desc: language === 'fr'
-                  ? 'Accueil et cours pensés pour les emplois du temps des parents.'
-                  : 'Care and classes that respect busy family schedules.',
+                img: '/images/students-field-trip.jpeg',
+                badge: language === 'fr' ? 'Adolescents · 12–17 ans' : 'Teens · 12–17 yrs',
+                badgeColor: '#c41e3a',
+                title: language === 'fr' ? 'Anglais pour Ados' : 'English for Teens',
+                slots: ['8h00 – 10h00', '10h00 – 12h00', '13h00 – 15h00', '15h00 – 17h00'],
               },
-              {
-                icon: <Award size={22} />,
-                title: language === 'fr' ? 'Enseignants formés' : 'Trained teachers',
-                desc: language === 'fr'
-                  ? 'Petits groupes et professionnels habitués aux tout-petits.'
-                  : 'Small groups with staff used to working with young children.',
-              },
-              {
-                icon: <Star size={22} />,
-                title: language === 'fr' ? 'Suivi des parents' : 'Parent partnership',
-                desc: language === 'fr'
-                  ? 'Nous écoutons vos questions et célébrons chaque petit progrès.'
-                  : 'We answer your questions and celebrate every small step forward.',
-              },
-            ].map((item, i) => (
+            ].map((card, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
-                whileHover={{ y: -5 }}
-                transition={{ type: 'spring', stiffness: 380, damping: 26 }}
-                className="bg-white dark:bg-slate-900 p-7 rounded-xl border border-gray-200 dark:border-slate-700 hover:shadow-lg transition-shadow relative overflow-hidden"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+                className="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow"
               >
-                {/* Accent top */}
-                <div
-                  className="absolute top-0 left-0 right-0 h-0.5"
-                  style={{ backgroundColor: '#1a3a52', opacity: 0.5 }}
-                />
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 text-white"
-                  style={{ backgroundColor: '#1a3a52' }}
-                >
-                  {item.icon}
+                {/* Image + badges */}
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={card.img}
+                    alt={card.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div
+                    className="absolute top-4 left-4 px-3 py-1 rounded-full text-white text-xs font-semibold"
+                    style={{ backgroundColor: card.badgeColor }}
+                  >
+                    {card.badge}
+                  </div>
+                  <div className="absolute bottom-4 right-4 bg-white dark:bg-slate-900 rounded-xl px-4 py-2 text-right shadow-lg">
+                    <p className="font-display text-2xl font-700 leading-none" style={{ color: card.badgeColor }}>
+                      15 000 <span className="text-sm font-normal text-gray-500">Ar</span>
+                    </p>
+                    <p className="text-[10px] text-gray-400 mt-0.5">/ {language === 'fr' ? 'séance (2h)' : 'session (2h)'}</p>
+                  </div>
                 </div>
-                <h3 className="font-display text-base font-600 text-foreground dark:text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{item.desc}</p>
+
+                {/* Contenu */}
+                <div className="p-6">
+                  <h3 className="font-display text-xl font-600 text-foreground dark:text-white mb-4">{card.title}</h3>
+                  <p className="text-[10px] uppercase tracking-[0.25em] font-semibold text-gray-400 mb-3">
+                    {language === 'fr' ? 'Créneaux disponibles · Samedi' : 'Available slots · Saturday'}
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 mb-6">
+                    {card.slots.map((slot) => (
+                      <div
+                        key={slot}
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium text-[#1a3a52] dark:text-white"
+                        style={{ backgroundColor: 'rgba(26,58,82,0.06)' }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: card.badgeColor }} />
+                        {slot}
+                      </div>
+                    ))}
+                  </div>
+                  <Link
+                    href="/enquire"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-semibold text-white transition-all hover:opacity-90 group"
+                    style={{ backgroundColor: card.badgeColor }}
+                  >
+                    {language === 'fr' ? 'Réserver une place' : 'Reserve a spot'}
+                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
               </motion.div>
             ))}
-          </motion.div>
+          </div>
+
+          <p className="text-center text-xs text-gray-400 dark:text-gray-500 mt-8">
+            {language === 'fr'
+              ? '* Places limitées — contactez-nous pour choisir votre créneau.'
+              : '* Limited seats — contact us to choose your time slot.'}
+          </p>
         </div>
       </section>
 
       {/* ── KEY STAGES — Petite enfance ── */}
-      <section className="py-24">
+      <section className="py-24" style={{ backgroundColor: '#1a3a52' }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             variants={fadeUp}
@@ -373,21 +403,20 @@ export default function Home() {
                   {language === 'fr' ? 'Petite enfance · 0–5 ans' : 'Early years · 0–5'}
                 </p>
               </div>
-              <h2 className="font-display text-4xl md:text-5xl font-600 text-foreground dark:text-white">
+              <h2 className="font-display text-4xl md:text-5xl font-600 text-white">
                 {language === 'fr' ? 'Crèche, garderie & préscolaire' : 'Nursery, daycare & preschool'}
               </h2>
-              <p className="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+              <p className="text-white/55 mt-2 text-sm">
                 {language === 'fr'
                   ? "L'anglais dès les premières années, dans un cadre bienveillant."
                   : 'English from the very first years, in a caring environment.'}
               </p>
             </div>
             <Link
-              href="/programmes"
-              className="inline-flex items-center gap-1.5 text-sm font-medium pb-0.5 border-b transition-colors"
-              style={{ color: '#1a3a52', borderColor: '#1a3a52' }}
+              href="/nursey"
+              className="inline-flex items-center gap-1.5 text-sm font-medium pb-0.5 border-b border-white/40 text-white/70 hover:text-white hover:border-white transition-colors shrink-0"
             >
-              {language === 'fr' ? 'Voir tous les programmes' : 'See all programmes'}
+              {language === 'fr' ? 'Voir nos filières' : 'See our programs'}
               <ChevronRight size={14} />
             </Link>
           </motion.div>
@@ -401,20 +430,20 @@ export default function Home() {
           >
             {[
               {
-                href: '/programmes/creche',
-                img: 'https://images.pexels.com/photos/8613311/pexels-photo-8613311.jpeg?auto=compress&cs=tinysrgb&w=800',
+                href: '/nursey',
+                img: '/images/students-kids.jpeg',
                 eyebrow: language === 'fr' ? '0–18 mois' : '0–18 months',
                 title: language === 'fr' ? 'Crèche' : 'Nursery',
               },
               {
-                href: '/programmes/garderie',
-                img: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=800',
+                href: '/daycare',
+                img: '/images/students-field-trip.jpeg',
                 eyebrow: language === 'fr' ? '18 mois – 3 ans' : '18 months – 3 yrs',
                 title: language === 'fr' ? 'Garderie' : 'Daycare',
               },
               {
-                href: '/programmes/prescolaire',
-                img: 'https://images.pexels.com/photos/5905700/pexels-photo-5905700.jpeg?auto=compress&cs=tinysrgb&w=800',
+                href: '/secondary',
+                img: '/images/coverImage.jpeg',
                 eyebrow: language === 'fr' ? '3–5 ans' : '3–5 years',
                 title: language === 'fr' ? 'Préscolaire' : 'Preschool',
               },
@@ -452,7 +481,7 @@ export default function Home() {
       </section>
 
       {/* ── TEAM ── */}
-      <section className="py-24 bg-gray-50 dark:bg-slate-800">
+      <section className="py-24 bg-white dark:bg-slate-950">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             variants={fadeUp}

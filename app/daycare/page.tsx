@@ -124,7 +124,7 @@ export default function DaycarePage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/1560932/pexels-photo-1560932.jpeg?auto=compress&cs=tinysrgb&w=1800')`,
+            backgroundImage: `url('/images/students-field-trip.jpeg')`,
           }}
         />
         <div

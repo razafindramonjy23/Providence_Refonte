@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Moon, Sun, ChevronDown } from 'lucide-react';
+import { Menu, X, Moon, Sun, ChevronDown, Phone, Mail } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { translations } from '@/lib/translations';
 import { useLanguage } from '@/lib/contexts';
@@ -71,10 +71,43 @@ export default function Navbar() {
     : '#ffffff';
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? 'bg-white dark:bg-slate-950 shadow-md py-3'
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* ── Barre de contact ── */}
+      <AnimatePresence>
+        {!scrolled && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="overflow-hidden"
+            style={{ backgroundColor: '#c41e3a' }}
+          >
+            <div className="max-w-7xl mx-auto px-6 py-1.5 flex items-center justify-between text-xs text-white/90">
+              <div className="flex items-center gap-5">
+                <a href="tel:+261330740461" className="flex items-center gap-1.5 hover:text-white transition-colors">
+                  <Phone size={10} />
+                  +261 33 07 404 61
+                </a>
+                <span className="opacity-40 hidden sm:block">|</span>
+                <a href="tel:+261340504461" className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors">
+                  +261 34 50 404 61
+                </a>
+              </div>
+              <a href="mailto:providence_academy@yahoo.com" className="hidden md:flex items-center gap-1.5 hover:text-white transition-colors">
+                <Mail size={10} />
+                providence_academy@yahoo.com
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── Navbar principale ── */}
+      <div
+        className={`transition-all duration-500 ${
+          scrolled
+            ? 'bg-white dark:bg-slate-950 shadow-md py-3'
           : 'bg-gradient-to-b from-[#1a3a52]/90 dark:from-slate-900/90 to-transparent py-5'
       }`}
     >
@@ -169,7 +202,7 @@ export default function Navbar() {
                     : 'text-white/80 hover:text-white dark:text-white/80 dark:hover:text-white'
               }`}
             >
-              {language === 'fr' ? 'Cursus' : 'Programs'}
+              {language === 'fr' ? 'Filières' : 'Programs'}
               <motion.span
                 animate={{ rotate: cursusOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
@@ -407,6 +440,7 @@ export default function Navbar() {
           </motion.button>
         </div>
       </div>
+      </div>
 
       {/* Mobile Menu */}
       <motion.div
@@ -439,7 +473,7 @@ export default function Navbar() {
                   : 'text-gray-600 dark:text-gray-300'
               }`}
             >
-              <span>{language === 'fr' ? 'Cursus' : 'Programs'}</span>
+              <span>{language === 'fr' ? 'Filières' : 'Programs'}</span>
               <motion.span
                 animate={{ rotate: mobileCursusOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}

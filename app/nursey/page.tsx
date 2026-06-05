@@ -93,7 +93,7 @@ export default function NurseyPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/3662667/pexels-photo-3662667.jpeg?auto=compress&cs=tinysrgb&w=1800')`,
+            backgroundImage: `url('/images/nursery-event.jpg')`,
           }}
         />
         <div

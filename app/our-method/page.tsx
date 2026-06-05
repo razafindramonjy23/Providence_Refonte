@@ -81,7 +81,7 @@ export default function OurMethodPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/5905700/pexels-photo-5905700.jpeg?auto=compress&cs=tinysrgb&w=1800')`,
+            backgroundImage: `url('/images/students-field-trip.jpeg')`,
           }}
         />
         <div

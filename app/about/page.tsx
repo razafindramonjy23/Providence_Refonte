@@ -63,7 +63,7 @@ export default function AboutPage() {
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?auto=compress&cs=tinysrgb&w=1800')`,
+            backgroundImage: `url('/images/students-crowd.jpeg')`,
           }}
         />
         <div
@@ -208,10 +208,10 @@ export default function AboutPage() {
             viewport={{ once: true, margin: '-80px' }}
           >
             {[
-              { src: 'https://images.pexels.com/photos/5905700/pexels-photo-5905700.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Students', cls: '' },
-              { src: 'https://images.pexels.com/photos/8613311/pexels-photo-8613311.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Classroom', cls: 'mt-8' },
-              { src: 'https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Learning', cls: '-mt-4' },
-              { src: 'https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=600', alt: 'Teacher', cls: 'mt-4' },
+              { src: '/images/coverImage.jpeg', alt: 'Students group', cls: '' },
+              { src: '/images/students-kids.jpeg', alt: 'Young students', cls: 'mt-8' },
+              { src: '/images/students-field-trip.jpeg', alt: 'Field trip', cls: '-mt-4' },
+              { src: '/images/graduation.jpg', alt: 'Graduation ceremony', cls: 'mt-4' },
             ].map((img) => (
               <motion.div
                 key={img.alt}
