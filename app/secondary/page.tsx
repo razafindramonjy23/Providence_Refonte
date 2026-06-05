@@ -1,8 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import {
   BookOpen,
   ChevronRight,
@@ -217,7 +215,6 @@ export default function SecondaryPage() {
 
   return (
     <main className="min-h-screen bg-background dark:bg-slate-950 text-foreground dark:text-white">
-      <Navbar />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[82vh] flex items-center overflow-hidden">
@@ -538,8 +535,6 @@ export default function SecondaryPage() {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

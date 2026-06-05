@@ -139,7 +139,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs text-white/45">
               <li className="flex items-start gap-2">
                 <MapPin size={12} className="mt-0.5 shrink-0 text-[#c49a3c]" />
-                <span>33891 Dukengard Avenue 12, Smithbrook, VA 3312</span>
+                <span>Alarobia</span>
               </li>
               <li className="flex items-center gap-2">
                 <Mail size={12} className="shrink-0 text-[#c49a3c]" />
@@ -147,7 +147,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Phone size={12} className="shrink-0 text-[#c49a3c]" />
-                <a href="tel:+1234567890" className="hover:text-white transition-colors">+1 (234) 567-890</a>
+                <a href="tel:+1234567890" className="hover:text-white transition-colors">+261000000000</a>
               </li>
             </ul>
 
@@ -156,11 +156,13 @@ export default function Footer() {
               {[
                 { icon: <Instagram size={15} />, href: '#' },
                 { icon: <Linkedin size={15} />,  href: '#' },
-                { icon: <Facebook size={15} />,  href: '#' },
+                { icon: <Facebook size={15} />,  href: 'https://www.facebook.com/profile.php?id=61575701047791' },
               ].map((s, i) => (
                 <motion.a
                   key={i}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ y: -2, color: '#c49a3c' }}
                   className="w-8 h-8 rounded-full border border-white/15 flex items-center justify-center text-white/50 transition-colors hover:border-[#c49a3c]/50"
                 >

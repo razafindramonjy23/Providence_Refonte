@@ -1,8 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { CheckCircle, ArrowRight, ChevronRight, Clock, Mail, MessageSquare } from 'lucide-react';
 import { useLanguage } from '@/lib/contexts';
 import { translations } from '@/lib/translations';
@@ -75,7 +73,6 @@ export default function EnquirePage() {
   if (submitted) {
     return (
       <main className="min-h-screen bg-background dark:bg-slate-950 text-foreground dark:text-white">
-        <Navbar />
         <section className="min-h-screen flex items-center justify-center px-6 pt-24">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -103,14 +100,12 @@ export default function EnquirePage() {
             </motion.a>
           </motion.div>
         </section>
-        <Footer />
       </main>
     );
   }
 
   return (
     <main className="min-h-screen bg-background dark:bg-slate-950 text-foreground dark:text-white">
-      <Navbar />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[72vh] flex items-center overflow-hidden">
@@ -463,8 +458,6 @@ export default function EnquirePage() {
           </form>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

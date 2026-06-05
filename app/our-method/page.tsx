@@ -1,8 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { ChevronRight, Target, Search, RefreshCw, Heart, Brain, Layers, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/contexts';
@@ -77,7 +75,6 @@ export default function OurMethodPage() {
 
   return (
     <main className="min-h-screen bg-background dark:bg-slate-950 text-foreground dark:text-white">
-      <Navbar />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[82vh] flex items-center overflow-hidden">
@@ -525,8 +522,6 @@ export default function OurMethodPage() {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }

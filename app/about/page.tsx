@@ -1,8 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import { Award, Users, Globe, ChevronRight, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/lib/contexts';
@@ -59,7 +57,6 @@ export default function AboutPage() {
 
   return (
     <main className="min-h-screen bg-background dark:bg-slate-950 text-foreground dark:text-white">
-      <Navbar />
 
       {/* ── HERO ── */}
       <section className="relative min-h-[82vh] flex items-center overflow-hidden">
@@ -514,8 +511,6 @@ export default function AboutPage() {
           </motion.div>
         </div>
       </section>
-
-      <Footer />
     </main>
   );
 }
